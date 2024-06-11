@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavBar from './NavBar'
 
 const ViewCourse = () => {
+    const[course,changeCourse] = useState([
+        {
+            "courseTitle":"MERN",
+            "courseDescription":"React",
+            "courseDate":"06-11-24",
+            "courseDuration":"10",
+            "courseVenue":"Seminar hall",
+            "trainerName":"Anish"
+        }
+    ])
   return (
     <div>
         <NavBar/>
@@ -16,19 +26,22 @@ const ViewCourse = () => {
       <th scope="col">Course Description</th>
       <th scope="col">Course Date</th>
       <th scope="col">Course Duration</th>
-      <th scope="col">Venue</th>
+      <th scope="col">Cource Venue</th>
       <th scope="col">Trainer Name</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>MERN stack</td>
-      <td>React</td>
-      <td>06/11</td>
-      <td>10</td>
-      <td>Auditorium</td>
-      <td>Anish</td>
-    </tr>
+    {course.map((value,index)=>{
+        return <tr>
+        <td>{value.courseTitle}</td>
+        <td>{value.courseDescription}</td>
+        <td>{value.courseDate}</td>
+        <td>{value.courseDuration}</td>
+        <td>{value.courseVenue}</td>
+        <td>{value.trainerName}</td>
+      </tr>
+    })}
+    
     
   </tbody>
 </table>
